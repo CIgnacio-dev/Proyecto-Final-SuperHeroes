@@ -23,12 +23,18 @@ amarillo:#FFFF08
 negro: #FFFFFF
 
 <!-- Guía de instalación de dependencias -->
-Para nuestro proyecto, elegimos usar Webpack:
+Para nuestro proyecto, elegimos usar Webpack como empaquetador de módulos:
 npm install webpack webpack-cli --save-dev
 
 NPM de Vue: npm install vue
 NPM de Vue Router: npm install vue-router
 NPM de Vuex: npm install vuex --save
+
+<!--Componentes-->
+
+Framework a usar como base:
+-De la app       : Vue JS
+-De la interfaz  : Element UI
 
 
 
