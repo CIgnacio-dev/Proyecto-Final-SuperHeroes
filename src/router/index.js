@@ -26,9 +26,9 @@ Vue.use(VueRouter)
     component: () => import('../views/Favoritos.vue')
   },
   {
-    path: '/Historia',
-    name: 'Historia',
-    component: () => import('../views/Historia.vue')
+    path: '/Caracteristicas',
+    name: 'Caracteristicas',
+    component: () => import('../views/Caracteristicas.vue')
   }
   
 ]

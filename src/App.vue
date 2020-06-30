@@ -1,13 +1,32 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/Home">Home</router-link> |
-      <router-link to="/Login">Login</router-link> |
-        <router-link to="/Favoritos">Favoritos</router-link> |
-          <router-link to="/Batalla">Batalla</router-link> |
-          <router-link to="/Historia">Historia</router-link> |
+      <b-navbar type="dark" variant="secondary">
+        <b-navbar-nav>
+          <b-nav-item><router-link to="/Home">Home</router-link></b-nav-item>
+          <b-nav-item
+            ><router-link to="/Batalla">Batalla</router-link></b-nav-item
+          >
+          <b-nav-item
+            ><router-link to="/Caracteristicas"
+              >Caracteristicas</router-link
+            ></b-nav-item>
+          <b-avatar button @ click = "onClick"  icon="person-circle"  class = "align-center" ></b-avatar>
+          <b-nav-item-dropdown text="Usuario" right>
+            
+            <b-dropdown-item>
+              <router-link to="/Login">Login</router-link></b-dropdown-item
+            >
+            <b-dropdown-item
+              ><router-link to="/Favoritos"
+                >Favoritos</router-link
+              ></b-dropdown-item
+            >
+          </b-nav-item-dropdown>
+        </b-navbar-nav>
+      </b-navbar>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -20,16 +39,5 @@
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
+
