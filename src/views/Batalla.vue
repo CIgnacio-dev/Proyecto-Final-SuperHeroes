@@ -124,7 +124,7 @@ for (const property in powerStats2) {
 
 console.log('Promedio heroe1 => ', promedioHeore1/6)
 console.log('Promedio heroe2 => ', promedioHeore2/6)
-alert(promedioHeore1 < promedioHeore2 ? 'El Ganador es el Heroe 1' : ' El Ganador es Heroe 2'  )
+alert(promedioHeore1 < promedioHeore2 ? 'El Ganador es el Heroe 2' : ' El Ganador es Heroe 1'  )
 }
     
   },

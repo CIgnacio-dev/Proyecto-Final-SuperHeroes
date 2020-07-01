@@ -18,11 +18,7 @@
             <b-input-group>
               <b-form-rating v-model="value" color="#ff8800"></b-form-rating>
               <b-input-group-append>
-               <!--  <b-input-group-text
-                  class="justify-content-center"
-                  style="min-width: 3em;"
-                >{{ value }}</b-input-group-text> -->
-                <b-button @click="goFavs">Favoritos</b-button>
+                <b-button @click="goFavs(heroe.image.url,heroe.name)">Favoritos</b-button>
               </b-input-group-append>
             </b-input-group>
           </div>
@@ -157,15 +153,17 @@ export default {
           alert("no existe super heroe");
         });
     },
-computed: mapState({
-  value(state){
-    return state.value
-  }
-})
 
-  /*   goFavs(){
-
-    } */
+     goFavs(url, name){
+       let heroe = {
+         name: name,
+         img: {
+           url: url
+         }
+       }
+    this.$store.dispatch('agregarFavs', heroe ),
+    alert('Heroe Agregado')
+    } 
 
   }
 };

@@ -7,22 +7,47 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    value: '',
+    value: "",
     email: "",
     password: "",
-    userLogin: false
+    uLogin: false,
+    favs: [],
+    heroes:[],
   },
-  mutations: {
-    
+  mutations: { //cambios a state
+    cambioStateLogin(state) {
+      state.uLogin = !state.uLogin;
+      return state.uLogin;
+    },
+     setFavs(state, favoritos){
+     state.favs = favoritos
+    } 
   },
   actions: { //ejecutan mutations
-   
+
+ agregarFavs({commit, state}, heroe){
+  let favoritos = state.favs;
+  favoritos.push(heroe)
+  let nombre = heroe.name;
+  let imagen = heroe.img.url
+
+  let favs = {  
+    heroesfavoritos:  favoritos
+  }
+  let email = firebase.auth().currentUser.email
+  let payload = { email, favs}
+axios.post('https://us-central1-superheroebattle-b1245.cloudfunctions.net/usuarios/usuarios', payload).then(data=>
+commit('setFavs', favoritos)) 
+
+} 
+    /* https://us-central1-superheroebattle-b1245.cloudfunctions.net/usuarios */
   },
   
-  getters: {
-goFavs(state){
-  return state.value;
-}
+  getters: { //obtienen ciertas propiedades de state
+    getuLogin(state) {
+      return state.uLogin;
+    },
+  
   },
  
 });

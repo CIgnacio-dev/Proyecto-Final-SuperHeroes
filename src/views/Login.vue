@@ -30,9 +30,9 @@
         ></b-form-input>
       </b-form-group>
 
-     
-      
-      <b-button @click="login" variant="primary">Login</b-button>
+          
+      <b-button @click="login" variant="primary" >Login</b-button>
+    
      
     </b-form>
     </b-container>
@@ -43,8 +43,6 @@
 <script>
 import Firebase from 'firebase'
 export default {
- /*  props:['user'],
-  name: 'FormLogin', */
   data() {
       return {
         form:{
@@ -56,20 +54,12 @@ export default {
   },
   methods: {
     login(){
-        Firebase.auth().signInWithEmailAndPassword(this.form.email, this.form.password).then( data => console.log(data),
-        this.$router.push({ name: 'Favoritos' })
+        Firebase.auth().signInWithEmailAndPassword(this.form.email, this.form.password).then( data => console.log(data), alert('Usuario Logeado'),
+        this.$router.push({ name: 'Caracteristicas' }),
+        this.$store.commit("cambioStateLogin")
         )
         
-}, signOut() {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          this.$router.replace({
-            name: "home"
-          });
-        });
-    } }
+}, }
 
 }
 </script>

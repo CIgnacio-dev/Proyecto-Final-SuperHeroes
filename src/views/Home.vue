@@ -24,32 +24,35 @@
   </b-carousel>
 </div>
 
-
-  
- 
- <b-button class="my-5" v-b-toggle.sidebar-variant>¿De qué trata esta App?"</b-button>
+ <div class="container">
+   <div class="row">
+ <b-button class="col boton_sidebar" v-b-toggle.sidebar-variant>¿De qué trata esta App?"</b-button>
     <b-sidebar id="sidebar-variant" title="¿De qué trata esta app?" bg-variant="dark" text-variant="light" shadow>
       <div class="px-3 py-2">
         <p>
-          Esta sera una APP con el propósito de dar a conocer más de 600 super héroes, analizando su historia, sus poderes y su origen. Con la app no solo podremos ver las características, si no que podremos 'enfrentarlos' para así tener una idea de en qué característica sobresale frente a su adversario.
+          Esta será una APP con el propósito de dar a conocer más de 600 super héroes, analizando su historia, sus poderes y su origen. Con la app no solo podremos ver las características, si no que podremos 'enfrentarlos' para así tener una idea de en qué característica sobresale frente a su adversario.
 
           Esperamos que disfrutes la experiencia.
         </p>
         <b-img src="https://www.comicbasics.com/wp-content/uploads/2017/09/Superman.png" fluid thumbnail></b-img>
         <b-img src="https://www.comicbasics.com/wp-content/uploads/2017/09/Wonder-Woman.png" fluid thumbnail></b-img>
-      </div>
+        </div>
     </b-sidebar>
-
+     </div>
+</div>
 
   </div>
 </template>
 
 <script>
-
-
 export default {
   name: 'Home',
-
-  
 }
 </script>
+<style>
+.boton_sidebar{
+  max-width: 10%;
+  margin: 2%;
+  text-align: center;
+}
+</style>

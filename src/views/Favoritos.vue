@@ -19,15 +19,12 @@
 
 <script>
 import axios from "axios";
-import { mapGetters, mapActions, mapState } from "vuex";
 export default {
   name: "Favoritos",
   data() {
     return {
       favoritos: [],
-      cargando: true,
       heroes: [],
-      /* cargando: false */
     };
   
   },
@@ -41,10 +38,10 @@ created() {
         this.setFavs(data.heroes);
       });
   },
-  ...mapActions(["setFavs"])
+  
 },
   computed: {
-    ...mapState(["favs"])
+    
   },
 
 };

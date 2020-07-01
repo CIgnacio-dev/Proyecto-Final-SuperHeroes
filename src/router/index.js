@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import NoEncontrado from "../views/NoEncontrado.vue"
 
 Vue.use(VueRouter)
 
@@ -29,7 +30,19 @@ Vue.use(VueRouter)
     path: '/Caracteristicas',
     name: 'Caracteristicas',
     component: () => import('../views/Caracteristicas.vue')
-  }
+  },
+  {
+    path: '/Registro',
+    name: 'Registro',
+    component: () => import('../views/Registro.vue')
+  },
+  {
+    path: '/NoEncontrado',
+    name: 'NoEncontrado',
+    component: () => import('../views/NoEncontrado.vue')
+  },
+  
+  
   
 ]
 
