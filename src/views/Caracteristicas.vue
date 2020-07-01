@@ -13,20 +13,20 @@
         <div v-for="(heroe,index) in heroes" :key="index">
           <img :src="heroe.image.url" />
           <h2>{{heroe.name}}</h2>
+
           <div>
             <b-input-group>
-              <b-input-group-prepend>
-                <b-button @click="value = null">Clear</b-button>
-              </b-input-group-prepend>
               <b-form-rating v-model="value" color="#ff8800"></b-form-rating>
               <b-input-group-append>
-                <b-input-group-text
+               <!--  <b-input-group-text
                   class="justify-content-center"
                   style="min-width: 3em;"
-                >{{ value }}</b-input-group-text>
+                >{{ value }}</b-input-group-text> -->
+                <b-button @click="goFavs">Favoritos</b-button>
               </b-input-group-append>
             </b-input-group>
           </div>
+
           <b-card-text>
             <h2>
               <b>Editorial:</b>
@@ -51,7 +51,7 @@
             ></b-progress>
 
             <h5>Fuerza</h5>
-            <b-progress
+            <b-progress 
               :value="heroe.powerstats.strength"
               :max="max"
               variant="success"
@@ -132,13 +132,14 @@
 
 
 <script>
+import {mapState} from 'vuex';
 import axios from "axios";
 export default {
   data() {
     return {
       nombre: "",
       heroes: [],
-     
+     value:'',
     };
     
   },
@@ -148,7 +149,6 @@ export default {
         .get(
           `https://superheroapi.com/api.php/10224497507444638/search/${this.nombre}`
         )
-
         .then(result => {
           this.heroes = [...result.data.results];
           console.log(result.data.results);
@@ -156,7 +156,17 @@ export default {
         .catch(error => {
           alert("no existe super heroe");
         });
-    }
+    },
+computed: mapState({
+  value(state){
+    return state.value
+  }
+})
+
+  /*   goFavs(){
+
+    } */
+
   }
 };
 </script>

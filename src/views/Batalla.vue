@@ -109,7 +109,7 @@ ListaBatalla
      
     },
 peleaHeroes(){
-/*  let stats1 = (this.heroes(this.heroe.powerstats) /6) */
+
 let promedioHeore1 = 0;
 let powerStats = this.heroes[0].powerstats
 for (const property in powerStats) {
@@ -121,26 +121,14 @@ let powerStats2 = this.heroes2[0].powerstats
 for (const property in powerStats2) {
   promedioHeore2+= Number(powerStats2[property])
 }
- 
+
 console.log('Promedio heroe1 => ', promedioHeore1/6)
 console.log('Promedio heroe2 => ', promedioHeore2/6)
-console.log(promedioHeore1 < promedioHeore2 ? 'El Ganador es el Heroe 2': ' El Ganador es el Heroe 1')
+alert(promedioHeore1 < promedioHeore2 ? 'El Ganador es el Heroe 1' : ' El Ganador es Heroe 2'  )
 }
     
   },
   
 }
 
-
-/* REVISAR ESTO
- computed : {
-    total: function() {
-      let sum = 0;
-      return this.items.reduce((sum, item) => sum + item.price, 0);
-    }
-  }
- */
-/*  this.heroes = [...result.data.results]; */
-/* .then(response => {
-          response.data.message.forEach(perro => this.arregloPerros.push(perro)); */
 </script>

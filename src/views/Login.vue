@@ -41,18 +41,35 @@
 </template>
   
 <script>
+import Firebase from 'firebase'
 export default {
  /*  props:['user'],
   name: 'FormLogin', */
   data() {
       return {
         form:{
-          email:'batman@superhero.com',
-          password:'imbatman',
+          email:'usuario@shb.cl',
+          password:'heroes',
         },
         show: true
       }
   },
+  methods: {
+    login(){
+        Firebase.auth().signInWithEmailAndPassword(this.form.email, this.form.password).then( data => console.log(data),
+        this.$router.push({ name: 'Favoritos' })
+        )
+        
+}, signOut() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.replace({
+            name: "home"
+          });
+        });
+    } }
 
 }
 </script>
@@ -77,3 +94,4 @@ a {
   background-image: '/assets/img/superheroes-marvel-dc.jpg';
 }
 </style>
+
