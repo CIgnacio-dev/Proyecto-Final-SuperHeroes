@@ -1,87 +1,61 @@
 <template>
-  <div class="hello">
-    <b-container>
-      
-      <h1>Ingresa a tu super cuenta</h1>
- <b-form v-if="show">
+  <div class="container mt-50">
+    <div class="columns">
+      <div class="column is-6 is-offset-3">
+        <h3 class="title is-3">Iniciar sesion</h3><hr>
+        <form action="#" @submit.prevent="login">    
 
-      <b-form-group
-        id="input-group-1"
-        label="Email:"
-        label-for="input-1"
-        description="ejemplo@mail.com"
-      >
-        <b-form-input
-          id="input-1"
-          v-model="form.email"
-          type="email"
-          required
-          placeholder="Entra tu email"
-        ></b-form-input>
-      </b-form-group>
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control">
+              <input class="input" type="email" placeholder="Ejemplo: heroe@gmail.com" v-model="email">
+            </div>
+          </div>
 
-      <b-form-group id="input-group-2" label="Password:"  label-for="input-2">
-        <b-form-input
-        type="password"
-          id="input-2"
-          v-model="form.password"
-          required
-          placeholder="Entra tu nombre"
-        ></b-form-input>
-      </b-form-group>
+          <div class="field">
+            <label class="label">Contraseña</label>
+            <div class="control">
+              <input class="input" type="password" v-model="password">
+            </div>
+          </div>
 
-          
-      <b-button @click="login" variant="primary" >Login</b-button>
-    
-     
-    </b-form>
-    </b-container>
- 
+          <button type="submit" class="button is-primary">Iniciar sesion</button>
+        </form>
+
+        <div class="notification is-danger mt-10" v-if="error">          
+          {{ error }}
+        </div>
+
+      </div>
+    </div>
   </div>
 </template>
-  
-<script>
-import Firebase from 'firebase'
-export default {
-  data() {
-      return {
-        form:{
-          email:'usuario@shb.cl',
-          password:'heroes',
-        },
-        show: true
-      }
-  },
-  methods: {
-    login(){
-        Firebase.auth().signInWithEmailAndPassword(this.form.email, this.form.password).then( data => console.log(data), alert('Usuario Logeado'),
-        this.$router.push({ name: 'Caracteristicas' }),
-        this.$store.commit("cambioStateLogin")
-        )
-        
-}, }
 
+<script>
+import firebase from 'firebase'
+export default {
+  data () {
+    return {     
+      email: '',
+      password: '',
+      error: ''
+    }
+  },
+  name: 'Login',
+  methods: {
+    login() {
+      this.error = ''
+      if (this.email && this.password) {
+        firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+          .then(user => {
+            this.$router.push({name: 'dashboard'})
+          }).catch(err => {
+            this.error = err.message
+          })
+      }else {
+        this.error = 'Todos los campos son requeridos'
+      }
+    }
+  }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-.hello{
-  background-image: '/assets/img/superheroes-marvel-dc.jpg';
-}
-</style>
-
