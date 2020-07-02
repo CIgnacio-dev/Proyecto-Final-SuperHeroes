@@ -40,3 +40,4 @@ Footer que tendrá derechos reservados y creadores de la app
 # Usuarios de prueba
 
 gekuka@gmail.com    pass: gekuka
+usuario@shb.com    pass: heroes
