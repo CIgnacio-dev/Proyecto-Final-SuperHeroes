@@ -8,7 +8,7 @@
           <div class="field">
             <label class="label">Email</label>
             <div class="control">
-              <input class="input" type="email" placeholder="Ejemplo: heroe@gmail.com" v-model="email">
+              <input class="input" type="email" placeholder="Ej: heroe@gmail.com" v-model="email">
             </div>
           </div>
 
@@ -47,7 +47,8 @@ export default {
       this.error = ''
       if (this.email && this.password) {
         firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-          .then(user => {
+          .then(user => {({ name: 'Caracteristicas' })
+          this.$store.commit("cambioStateLogin")
             this.$router.push({name: 'dashboard'})
           }).catch(err => {
             this.error = err.message
@@ -59,3 +60,4 @@ export default {
   }
 }
 </script>
+
