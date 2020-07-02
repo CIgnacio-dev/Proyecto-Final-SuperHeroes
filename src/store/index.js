@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from "axios";
 import firebase from "firebase";
+import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex)
 
@@ -49,5 +50,6 @@ commit('setFavs', favoritos))
     },
   
   },
+  plugins: [createPersistedState()],
  
 });
