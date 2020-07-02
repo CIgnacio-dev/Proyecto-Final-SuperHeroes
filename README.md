@@ -34,3 +34,9 @@ Gráfica de las estadísticas de cada personaje
 Cards en la que aparecerán los personajes buscados/seleccionados
 Carousel donde se mostrará una cantidad de personajes aleatorios
 Footer que tendrá derechos reservados y creadores de la app
+
+
+
+# Usuarios de prueba
+
+gekuka@gmail.com    pass: gekuka
