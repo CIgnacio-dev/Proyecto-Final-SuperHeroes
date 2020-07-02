@@ -50,7 +50,7 @@ export default {
       error: ''
     }
   },
-  name: 'Register',
+  name: 'Registro',
   methods: {
     register() {
       this.error = ''
@@ -65,7 +65,7 @@ export default {
                 this.name = ''
                 this.email = ''
                 this.password = ''
-                this.$router.push({name: 'dashboard'})                                
+                this.$router.push({name: 'Caracteristicas'})                                
               }).catch((err) => {
                 this.error = err.message
               })             
