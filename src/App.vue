@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div id="app">
     <div id="nav">
       <router-link to="/Home">Home</router-link> |
@@ -33,3 +34,23 @@
   }
 }
 </style>
+=======
+  <div>
+ <Navegador/>
+ <Footer msg='Team CaGe 2020'/>
+  </div>
+</template>
+
+
+<script>
+import Navegador from "@/components/Navegador.vue";
+import Footer from "@/components/Footer.vue";
+export default {
+components:{
+  Navegador,
+  Footer,
+},
+}
+</script>
+
+>>>>>>> master

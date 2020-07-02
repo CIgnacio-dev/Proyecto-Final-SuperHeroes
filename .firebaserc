@@ -1,5 +1,10 @@
 {
   "projects": {
+<<<<<<< HEAD
     "default": "proyectosuperheroesbattle"
+=======
+    "default": "proyectosuperheroesbattle",
+    "shb": "superheroebattle-b1245"
+>>>>>>> master
   }
 }
